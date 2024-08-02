@@ -5,6 +5,6 @@ database:
   user: "postgres"
   pass: ""
 kafka:
-  host: "kafka-bootstrap-cluster-1.dev.fluentum.aegislabs.work:443"
+  brokerList: "localhost:9092"
   protocol: "SASL_SSL"
-  topic: "aegis.hiring"
+  topic: "test_topic"

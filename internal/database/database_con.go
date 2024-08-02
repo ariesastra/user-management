@@ -11,13 +11,14 @@ import (
 
 var DB *gorm.DB
 
-func InitializeDatabaseConnection() *gorm.DB {
-	connectionString := fmt.Sprintf("postgres://%s:%s@%s:%s/%s",
+func InitializeDatabaseConnection() {
+	connectionString := fmt.Sprintf("postgres://%s:%s@%s:%s/%s?search_path=%s",
 		viper.Get("database.user"),
 		viper.Get("database.pass"),
 		viper.Get("database.host"),
 		viper.Get("database.port"),
 		viper.Get("database.databaseName"),
+		"user_management",
 	)
 	newDB, err := gorm.Open(postgres.Open(connectionString), &gorm.Config{
 		Logger: logger.Default.LogMode(logger.Info),
@@ -34,5 +35,5 @@ func InitializeDatabaseConnection() *gorm.DB {
 	}
 
 	DB = newDB
-	return DB
+	fmt.Printf("Connected to database: %s\n", connectionString)
 }
