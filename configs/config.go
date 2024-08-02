@@ -36,7 +36,7 @@ func InitConfig() *Config {
 		env = "dev"
 	}
 
-	viper.SetConfigName("env")
+	viper.SetConfigName(env)
 	viper.AddConfigPath("configs")
 	err = viper.ReadInConfig()
 	if err != nil {

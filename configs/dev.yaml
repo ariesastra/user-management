@@ -2,7 +2,7 @@ database:
   databaseName: "user_management"
   host: "localhost"
   port: "5432"
-  user: "root"
+  user: "postgres"
   pass: ""
 kafka:
   host: "kafka-bootstrap-cluster-1.dev.fluentum.aegislabs.work:443"
